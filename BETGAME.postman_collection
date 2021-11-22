@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "4389dc2a-fad0-4e16-a30c-c002fb5c1b86",
+		"name": "ERC20Holdable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get user balance and bets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/player/0xa07F690b76696d9178c1bc2247707F44233CFb7B",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player",
+						"0xa07F690b76696d9178c1bc2247707F44233CFb7B"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user balance and bets 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/player/0xd4755d270AF771BcDc4447bc8b724C2631B814Fe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player",
+						"0xd4755d270AF771BcDc4447bc8b724C2631B814Fe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user balance and bets 3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/player/0x0492eABC848b4aEb56a9B56625d827963844ADC5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player",
+						"0x0492eABC848b4aEb56a9B56625d827963844ADC5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user balance and bets 4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/player/0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player",
+						"0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all bets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/player",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bet/0xa07F690b76696d9178c1bc2247707F44233CFb7B",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bet",
+						"0xa07F690b76696d9178c1bc2247707F44233CFb7B"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bet 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bet/0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bet",
+						"0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bet 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bet/0xd4755d270AF771BcDc4447bc8b724C2631B814Fe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bet",
+						"0xd4755d270AF771BcDc4447bc8b724C2631B814Fe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bet 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bet/0x0492eABC848b4aEb56a9B56625d827963844ADC5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bet",
+						"0x0492eABC848b4aEb56a9B56625d827963844ADC5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

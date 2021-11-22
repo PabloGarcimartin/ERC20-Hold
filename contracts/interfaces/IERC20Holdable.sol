@@ -7,6 +7,13 @@ pragma solidity ^0.8.0;
  * @dev Interface of the ERC20 standard as defined in the EIP.
  */
 interface IERC20Holdable {
+
+    struct Hold {
+        address sender;
+        address recipient;
+        uint256 amount;
+    }
+
     /**
      * @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)
      * until the hold is executed or returned.
@@ -19,7 +26,7 @@ interface IERC20Holdable {
       uint256 holdId,
       address recipient,
       uint256 amount
-    ) external returns (bool);
+    ) external returns (uint256);
 
     /**
      * @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)
@@ -32,10 +39,9 @@ interface IERC20Holdable {
      */
     function holdFrom(
       uint256 holdId,
-      address sender,
       address recipient,
       uint256 amount
-    ) external returns (bool);
+    ) external returns (uint256);
 
     /**
     *  When the method is executed the money is transferred from the on hold balance to the wallet
@@ -56,8 +62,37 @@ interface IERC20Holdable {
     *
     *  Emits a {Transfer} event.
     */
-    function removeHold(
+    function cancelHold(
       uint256 holdId
     ) external returns (bool);
+
+    /**
+    *  Returns all the address holds
+    *
+    *  This function can only be called by the owner of the contract or the address that created the holds.
+    *
+    */
+    function getUserHolds(
+      address userAddress
+    ) external returns (Hold[] memory);
+
+    /**
+    *  Returns all the holds
+    *
+    *  This function can only be called by the owner of the contract.
+    *
+    */
+    function getHolds(
+    ) external returns (Hold[] memory);
+
+    /**
+    *  Returns the hold data
+    *
+    *  This function can only be called by the owner of the contract.
+    *
+    */
+    function getHold(
+      uint256 holdId
+    ) external returns (Hold memory);
 
 }

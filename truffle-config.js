@@ -44,7 +44,7 @@ module.exports = {
     development: {
      host: "127.0.0.1",     // Localhost (default: none)
      port: 9545,            // Standard Ethereum port (default: none)
-     network_id: "5777",       // Any network (default: none)
+     network_id: "5777",       // Any network (default: none),
     },
     // Another network with more advanced options...
     // advanced: {
@@ -77,6 +77,9 @@ module.exports = {
   mocha: {
     // timeout: 100000
   },
+  plugins: [
+        "@chainsafe/truffle-plugin-abigen"
+  ],
 
   // Configure your compilers
   compilers: {

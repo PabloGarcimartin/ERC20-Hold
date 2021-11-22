@@ -1,0 +1,31 @@
+{
+  "name": "erc20-hold",
+  "version": "1.0.0",
+  "description": "ERC20 token that allows holds",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "openzeppelin-solidity": "^4.3.3",
+    "truffle-assertions": "^0.9.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabloGarcimartin/ERC20-Hold.git"
+  },
+  "author": "Pablo Garcimartin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PabloGarcimartin/ERC20-Hold/issues"
+  },
+  "homepage": "https://github.com/PabloGarcimartin/ERC20-Hold#readme",
+  "devDependencies": {
+    "@openzeppelin/contracts": "^4.3.3",
+    "web3": "^1.6.1"
+  }
+}
