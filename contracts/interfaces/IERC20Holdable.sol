@@ -20,7 +20,7 @@ interface IERC20Holdable {
      *
      * Returns a boolean value indicating whether the operation succeeded.
      *
-     * Emits a {Transfer} event.
+     * Emits a {HoldCreated} event.
      */
     function hold(
       uint256 holdId,
@@ -35,10 +35,11 @@ interface IERC20Holdable {
      *
      * Returns a boolean value indicating whether the operation succeeded.
      *
-     * Emits a {Transfer} event.
+     * Emits a {HoldCreated} event.
      */
     function holdFrom(
       uint256 holdId,
+      address sender,
       address recipient,
       uint256 amount
     ) external returns (uint256);
@@ -47,9 +48,9 @@ interface IERC20Holdable {
     *  When the method is executed the money is transferred from the on hold balance to the wallet
     *  where the hold was instructed.
     *
-    *  It can only be executed by the same address that created the hold.
+    *  It can only be executed by the same address that created the hold or the contract owner.
     *
-    *  Emits a {Transfer} event.
+    *  Emits a {HoldExecuted} event.
     */
     function executeHold(
       uint256 holdId
@@ -60,39 +61,9 @@ interface IERC20Holdable {
     *
     *  This function can only be called by the owner of the contract.
     *
-    *  Emits a {Transfer} event.
+    *  Emits a {HoldCanceled} event.
     */
     function cancelHold(
       uint256 holdId
     ) external returns (bool);
-
-    /**
-    *  Returns all the address holds
-    *
-    *  This function can only be called by the owner of the contract or the address that created the holds.
-    *
-    */
-    function getUserHolds(
-      address userAddress
-    ) external returns (Hold[] memory);
-
-    /**
-    *  Returns all the holds
-    *
-    *  This function can only be called by the owner of the contract.
-    *
-    */
-    function getHolds(
-    ) external returns (Hold[] memory);
-
-    /**
-    *  Returns the hold data
-    *
-    *  This function can only be called by the owner of the contract.
-    *
-    */
-    function getHold(
-      uint256 holdId
-    ) external returns (Hold memory);
-
 }

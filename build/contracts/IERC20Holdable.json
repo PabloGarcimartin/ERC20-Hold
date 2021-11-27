@@ -39,6 +39,11 @@
         },
         {
           "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
           "name": "recipient",
           "type": "address"
         },
@@ -96,111 +101,9 @@
       ],
       "stateMutability": "nonpayable",
       "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "userAddress",
-          "type": "address"
-        }
-      ],
-      "name": "getUserHolds",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "sender",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "recipient",
-              "type": "address"
-            },
-            {
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct IERC20Holdable.Hold[]",
-          "name": "",
-          "type": "tuple[]"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getHolds",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "sender",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "recipient",
-              "type": "address"
-            },
-            {
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct IERC20Holdable.Hold[]",
-          "name": "",
-          "type": "tuple[]"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "holdId",
-          "type": "uint256"
-        }
-      ],
-      "name": "getHold",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "sender",
-              "type": "address"
-            },
-            {
-              "internalType": "address",
-              "name": "recipient",
-              "type": "address"
-            },
-            {
-              "internalType": "uint256",
-              "name": "amount",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct IERC20Holdable.Hold",
-          "name": "",
-          "type": "tuple"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"holdId\",\"type\":\"uint256\"}],\"name\":\"cancelHold\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"holdId\",\"type\":\"uint256\"}],\"name\":\"executeHold\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"holdId\",\"type\":\"uint256\"}],\"name\":\"getHold\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"struct IERC20Holdable.Hold\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getHolds\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"struct IERC20Holdable.Hold[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"userAddress\",\"type\":\"address\"}],\"name\":\"getUserHolds\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"struct IERC20Holdable.Hold[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"holdId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"hold\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"holdId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"holdFrom\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC20 standard as defined in the EIP.\",\"kind\":\"dev\",\"methods\":{\"hold(uint256,address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to account[0] (the token owner\\u00b4s account) until the hold is executed or returned. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"},\"holdFrom(uint256,address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to account[0] (the token owner\\u00b4s account) using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"cancelHold(uint256)\":{\"notice\":\"Returns the money on hold and all the balance is available for transfers.  This function can only be called by the owner of the contract.  Emits a {Transfer} event.\"},\"executeHold(uint256)\":{\"notice\":\"When the method is executed the money is transferred from the on hold balance to the wallet  where the hold was instructed.  It can only be executed by the same address that created the hold.  Emits a {Transfer} event.\"},\"getHold(uint256)\":{\"notice\":\"Returns the hold data  This function can only be called by the owner of the contract.\"},\"getHolds()\":{\"notice\":\"Returns all the holds  This function can only be called by the owner of the contract.\"},\"getUserHolds(address)\":{\"notice\":\"Returns all the address holds  This function can only be called by the owner of the contract or the address that created the holds.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IERC20Holdable.sol\":\"IERC20Holdable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IERC20Holdable.sol\":{\"keccak256\":\"0x0240e08998c56a651e1bb7a34969b13c885fdbdecf0fd03c1b4c99c676e943ab\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://83387829f7bee7aac96026055021d9f734b4fa234159265a0a359b79880b8fdb\",\"dweb:/ipfs/QmUWwBwu98Cd5YURTroBypTWbgcjvqFQ4njZDFGJbQV6xu\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"holdId\",\"type\":\"uint256\"}],\"name\":\"cancelHold\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"holdId\",\"type\":\"uint256\"}],\"name\":\"executeHold\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"holdId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"hold\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"holdId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"holdFrom\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC20 standard as defined in the EIP.\",\"kind\":\"dev\",\"methods\":{\"hold(uint256,address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to account[0] (the token owner\\u00b4s account) until the hold is executed or returned. Returns a boolean value indicating whether the operation succeeded. Emits a {HoldCreated} event.\"},\"holdFrom(uint256,address,address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to account[0] (the token owner\\u00b4s account) using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {HoldCreated} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"cancelHold(uint256)\":{\"notice\":\"Returns the money on hold and all the balance is available for transfers.  This function can only be called by the owner of the contract.  Emits a {HoldCanceled} event.\"},\"executeHold(uint256)\":{\"notice\":\"When the method is executed the money is transferred from the on hold balance to the wallet  where the hold was instructed.  It can only be executed by the same address that created the hold or the contract owner.  Emits a {HoldExecuted} event.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IERC20Holdable.sol\":\"IERC20Holdable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IERC20Holdable.sol\":{\"keccak256\":\"0x2ee289f7b8104918f466b4ecd7c0ab83a4c77f7ff7cc30d7e33d99d3d90e71a4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9c7e80de6686d7605fc2c118daad6860caa5a153adf00fb3f4779204e3320973\",\"dweb:/ipfs/QmQQcLB5BP8XuTpLScSbd6Yhq2qa4ZKjhYQXcGmiojbU5s\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -208,21 +111,21 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\r\n// OpenZeppelin Contracts v4.3.2 (token/ERC20/IERC20.sol)\r\n\r\npragma solidity ^0.8.0;\r\n\r\n/**\r\n * @dev Interface of the ERC20 standard as defined in the EIP.\r\n */\r\ninterface IERC20Holdable {\r\n\r\n    struct Hold {\r\n        address sender;\r\n        address recipient;\r\n        uint256 amount;\r\n    }\r\n\r\n    /**\r\n     * @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\r\n     * until the hold is executed or returned.\r\n     *\r\n     * Returns a boolean value indicating whether the operation succeeded.\r\n     *\r\n     * Emits a {Transfer} event.\r\n     */\r\n    function hold(\r\n      uint256 holdId,\r\n      address recipient,\r\n      uint256 amount\r\n    ) external returns (uint256);\r\n\r\n    /**\r\n     * @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\r\n     * using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's\r\n     * allowance.\r\n     *\r\n     * Returns a boolean value indicating whether the operation succeeded.\r\n     *\r\n     * Emits a {Transfer} event.\r\n     */\r\n    function holdFrom(\r\n      uint256 holdId,\r\n      address recipient,\r\n      uint256 amount\r\n    ) external returns (uint256);\r\n\r\n    /**\r\n    *  When the method is executed the money is transferred from the on hold balance to the wallet\r\n    *  where the hold was instructed.\r\n    *\r\n    *  It can only be executed by the same address that created the hold.\r\n    *\r\n    *  Emits a {Transfer} event.\r\n    */\r\n    function executeHold(\r\n      uint256 holdId\r\n    ) external returns (bool);\r\n\r\n    /**\r\n    *  Returns the money on hold and all the balance is available for transfers.\r\n    *\r\n    *  This function can only be called by the owner of the contract.\r\n    *\r\n    *  Emits a {Transfer} event.\r\n    */\r\n    function cancelHold(\r\n      uint256 holdId\r\n    ) external returns (bool);\r\n\r\n    /**\r\n    *  Returns all the address holds\r\n    *\r\n    *  This function can only be called by the owner of the contract or the address that created the holds.\r\n    *\r\n    */\r\n    function getUserHolds(\r\n      address userAddress\r\n    ) external returns (Hold[] memory);\r\n\r\n    /**\r\n    *  Returns all the holds\r\n    *\r\n    *  This function can only be called by the owner of the contract.\r\n    *\r\n    */\r\n    function getHolds(\r\n    ) external returns (Hold[] memory);\r\n\r\n    /**\r\n    *  Returns the hold data\r\n    *\r\n    *  This function can only be called by the owner of the contract.\r\n    *\r\n    */\r\n    function getHold(\r\n      uint256 holdId\r\n    ) external returns (Hold memory);\r\n\r\n}\r\n",
+  "source": "// SPDX-License-Identifier: MIT\r\n// OpenZeppelin Contracts v4.3.2 (token/ERC20/IERC20.sol)\r\n\r\npragma solidity ^0.8.0;\r\n\r\n/**\r\n * @dev Interface of the ERC20 standard as defined in the EIP.\r\n */\r\ninterface IERC20Holdable {\r\n\r\n    struct Hold {\r\n        address sender;\r\n        address recipient;\r\n        uint256 amount;\r\n    }\r\n\r\n    /**\r\n     * @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\r\n     * until the hold is executed or returned.\r\n     *\r\n     * Returns a boolean value indicating whether the operation succeeded.\r\n     *\r\n     * Emits a {HoldCreated} event.\r\n     */\r\n    function hold(\r\n      uint256 holdId,\r\n      address recipient,\r\n      uint256 amount\r\n    ) external returns (uint256);\r\n\r\n    /**\r\n     * @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\r\n     * using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's\r\n     * allowance.\r\n     *\r\n     * Returns a boolean value indicating whether the operation succeeded.\r\n     *\r\n     * Emits a {HoldCreated} event.\r\n     */\r\n    function holdFrom(\r\n      uint256 holdId,\r\n      address sender,\r\n      address recipient,\r\n      uint256 amount\r\n    ) external returns (uint256);\r\n\r\n    /**\r\n    *  When the method is executed the money is transferred from the on hold balance to the wallet\r\n    *  where the hold was instructed.\r\n    *\r\n    *  It can only be executed by the same address that created the hold or the contract owner.\r\n    *\r\n    *  Emits a {HoldExecuted} event.\r\n    */\r\n    function executeHold(\r\n      uint256 holdId\r\n    ) external returns (bool);\r\n\r\n    /**\r\n    *  Returns the money on hold and all the balance is available for transfers.\r\n    *\r\n    *  This function can only be called by the owner of the contract.\r\n    *\r\n    *  Emits a {HoldCanceled} event.\r\n    */\r\n    function cancelHold(\r\n      uint256 holdId\r\n    ) external returns (bool);\r\n}\r\n",
   "sourcePath": "C:\\Users\\pablo\\Code\\ERC20-Hold\\contracts\\interfaces\\IERC20Holdable.sol",
   "ast": {
     "absolutePath": "project:/contracts/interfaces/IERC20Holdable.sol",
     "exportedSymbols": {
       "IERC20Holdable": [
-        1378
+        1129
       ]
     },
-    "id": 1379,
+    "id": 1130,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1302,
+        "id": 1078,
         "literals": [
           "solidity",
           "^",
@@ -238,30 +141,30 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 1303,
+          "id": 1079,
           "nodeType": "StructuredDocumentation",
           "src": "121:72:6",
           "text": " @dev Interface of the ERC20 standard as defined in the EIP."
         },
         "fullyImplemented": false,
-        "id": 1378,
+        "id": 1129,
         "linearizedBaseContracts": [
-          1378
+          1129
         ],
         "name": "IERC20Holdable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "IERC20Holdable.Hold",
-            "id": 1310,
+            "id": 1086,
             "members": [
               {
                 "constant": false,
-                "id": 1305,
+                "id": 1081,
                 "mutability": "mutable",
                 "name": "sender",
                 "nodeType": "VariableDeclaration",
-                "scope": 1310,
+                "scope": 1086,
                 "src": "252:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -270,7 +173,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1304,
+                  "id": 1080,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "252:7:6",
@@ -284,11 +187,11 @@
               },
               {
                 "constant": false,
-                "id": 1307,
+                "id": 1083,
                 "mutability": "mutable",
                 "name": "recipient",
                 "nodeType": "VariableDeclaration",
-                "scope": 1310,
+                "scope": 1086,
                 "src": "277:17:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -297,7 +200,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1306,
+                  "id": 1082,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "277:7:6",
@@ -311,11 +214,11 @@
               },
               {
                 "constant": false,
-                "id": 1309,
+                "id": 1085,
                 "mutability": "mutable",
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1310,
+                "scope": 1086,
                 "src": "305:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -324,7 +227,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1308,
+                  "id": 1084,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "305:7:6",
@@ -338,36 +241,36 @@
             ],
             "name": "Hold",
             "nodeType": "StructDefinition",
-            "scope": 1378,
+            "scope": 1129,
             "src": "229:98:6",
             "visibility": "public"
           },
           {
             "documentation": {
-              "id": 1311,
+              "id": 1087,
               "nodeType": "StructuredDocumentation",
-              "src": "335:290:6",
-              "text": " @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\n until the hold is executed or returned.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {Transfer} event."
+              "src": "335:293:6",
+              "text": " @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\n until the hold is executed or returned.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {HoldCreated} event."
             },
             "functionSelector": "226aa68a",
-            "id": 1322,
+            "id": 1098,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "hold",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1318,
+              "id": 1094,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1313,
+                  "id": 1089,
                   "mutability": "mutable",
                   "name": "holdId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1322,
-                  "src": "653:14:6",
+                  "scope": 1098,
+                  "src": "656:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -375,10 +278,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1312,
+                    "id": 1088,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "653:7:6",
+                    "src": "656:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -388,12 +291,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1315,
+                  "id": 1091,
                   "mutability": "mutable",
                   "name": "recipient",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1322,
-                  "src": "676:17:6",
+                  "scope": 1098,
+                  "src": "679:17:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -401,10 +304,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1314,
+                    "id": 1090,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "676:7:6",
+                    "src": "679:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -415,12 +318,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1317,
+                  "id": 1093,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1322,
-                  "src": "702:14:6",
+                  "scope": 1098,
+                  "src": "705:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -428,10 +331,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1316,
+                    "id": 1092,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "702:7:6",
+                    "src": "705:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -440,20 +343,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "644:79:6"
+              "src": "647:79:6"
             },
             "returnParameters": {
-              "id": 1321,
+              "id": 1097,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1320,
+                  "id": 1096,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1322,
-                  "src": "742:7:6",
+                  "scope": 1098,
+                  "src": "745:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -461,10 +364,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1319,
+                    "id": 1095,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "742:7:6",
+                    "src": "745:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -473,40 +376,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "741:9:6"
+              "src": "744:9:6"
             },
-            "scope": 1378,
-            "src": "631:120:6",
+            "scope": 1129,
+            "src": "634:120:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 1323,
+              "id": 1099,
               "nodeType": "StructuredDocumentation",
-              "src": "759:383:6",
-              "text": " @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\n using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's\n allowance.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {Transfer} event."
+              "src": "762:386:6",
+              "text": " @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\n using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's\n allowance.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {HoldCreated} event."
             },
-            "functionSelector": "800b1dbb",
-            "id": 1334,
+            "functionSelector": "6e3ebe6b",
+            "id": 1112,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "holdFrom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1330,
+              "id": 1108,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1325,
+                  "id": 1101,
                   "mutability": "mutable",
                   "name": "holdId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1334,
-                  "src": "1174:14:6",
+                  "scope": 1112,
+                  "src": "1180:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -514,10 +417,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1324,
+                    "id": 1100,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1174:7:6",
+                    "src": "1180:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -527,12 +430,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1327,
+                  "id": 1103,
                   "mutability": "mutable",
-                  "name": "recipient",
+                  "name": "sender",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1334,
-                  "src": "1197:17:6",
+                  "scope": 1112,
+                  "src": "1203:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -540,10 +443,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1326,
+                    "id": 1102,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1197:7:6",
+                    "src": "1203:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -554,12 +457,39 @@
                 },
                 {
                   "constant": false,
-                  "id": 1329,
+                  "id": 1105,
+                  "mutability": "mutable",
+                  "name": "recipient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1112,
+                  "src": "1226:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1104,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1226:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1107,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1334,
-                  "src": "1223:14:6",
+                  "scope": 1112,
+                  "src": "1252:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -567,10 +497,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1328,
+                    "id": 1106,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1223:7:6",
+                    "src": "1252:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -579,20 +509,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1165:79:6"
+              "src": "1171:102:6"
             },
             "returnParameters": {
-              "id": 1333,
+              "id": 1111,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1332,
+                  "id": 1110,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1334,
-                  "src": "1263:7:6",
+                  "scope": 1112,
+                  "src": "1292:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -600,10 +530,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1331,
+                    "id": 1109,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1263:7:6",
+                    "src": "1292:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -612,40 +542,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1262:9:6"
+              "src": "1291:9:6"
             },
-            "scope": 1378,
-            "src": "1148:124:6",
+            "scope": 1129,
+            "src": "1154:147:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 1335,
+              "id": 1113,
               "nodeType": "StructuredDocumentation",
-              "src": "1280:273:6",
-              "text": "  When the method is executed the money is transferred from the on hold balance to the wallet\n  where the hold was instructed.\n  It can only be executed by the same address that created the hold.\n  Emits a {Transfer} event."
+              "src": "1309:299:6",
+              "text": "  When the method is executed the money is transferred from the on hold balance to the wallet\n  where the hold was instructed.\n  It can only be executed by the same address that created the hold or the contract owner.\n  Emits a {HoldExecuted} event."
             },
             "functionSelector": "12c38364",
-            "id": 1342,
+            "id": 1120,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "executeHold",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1338,
+              "id": 1116,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1337,
+                  "id": 1115,
                   "mutability": "mutable",
                   "name": "holdId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1342,
-                  "src": "1588:14:6",
+                  "scope": 1120,
+                  "src": "1643:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -653,10 +583,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1336,
+                    "id": 1114,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1588:7:6",
+                    "src": "1643:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -665,20 +595,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1579:30:6"
+              "src": "1634:30:6"
             },
             "returnParameters": {
-              "id": 1341,
+              "id": 1119,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1340,
+                  "id": 1118,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1342,
-                  "src": "1628:4:6",
+                  "scope": 1120,
+                  "src": "1683:4:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -686,10 +616,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1339,
+                    "id": 1117,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1628:4:6",
+                    "src": "1683:4:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -698,40 +628,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1627:6:6"
+              "src": "1682:6:6"
             },
-            "scope": 1378,
-            "src": "1559:75:6",
+            "scope": 1129,
+            "src": "1614:75:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 1343,
+              "id": 1121,
               "nodeType": "StructuredDocumentation",
-              "src": "1642:212:6",
-              "text": "  Returns the money on hold and all the balance is available for transfers.\n  This function can only be called by the owner of the contract.\n  Emits a {Transfer} event."
+              "src": "1697:216:6",
+              "text": "  Returns the money on hold and all the balance is available for transfers.\n  This function can only be called by the owner of the contract.\n  Emits a {HoldCanceled} event."
             },
             "functionSelector": "70369869",
-            "id": 1350,
+            "id": 1128,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "cancelHold",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1346,
+              "id": 1124,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1345,
+                  "id": 1123,
                   "mutability": "mutable",
                   "name": "holdId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1350,
-                  "src": "1888:14:6",
+                  "scope": 1128,
+                  "src": "1947:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -739,10 +669,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1344,
+                    "id": 1122,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1888:7:6",
+                    "src": "1947:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -751,20 +681,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1879:30:6"
+              "src": "1938:30:6"
             },
             "returnParameters": {
-              "id": 1349,
+              "id": 1127,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1348,
+                  "id": 1126,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1350,
-                  "src": "1928:4:6",
+                  "scope": 1128,
+                  "src": "1987:4:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -772,10 +702,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1347,
+                    "id": 1125,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1928:4:6",
+                    "src": "1987:4:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -784,305 +714,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1927:6:6"
+              "src": "1986:6:6"
             },
-            "scope": 1378,
-            "src": "1860:74:6",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 1351,
-              "nodeType": "StructuredDocumentation",
-              "src": "1942:172:6",
-              "text": "  Returns all the address holds\n  This function can only be called by the owner of the contract or the address that created the holds."
-            },
-            "functionSelector": "f718bdfe",
-            "id": 1360,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getUserHolds",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1354,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1353,
-                  "mutability": "mutable",
-                  "name": "userAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1360,
-                  "src": "2150:19:6",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 1352,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2150:7:6",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2141:35:6"
-            },
-            "returnParameters": {
-              "id": 1359,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1358,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1360,
-                  "src": "2195:13:6",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Hold_$1310_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IERC20Holdable.Hold[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1356,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1355,
-                        "name": "Hold",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1310,
-                        "src": "2195:4:6"
-                      },
-                      "referencedDeclaration": 1310,
-                      "src": "2195:4:6",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Hold_$1310_storage_ptr",
-                        "typeString": "struct IERC20Holdable.Hold"
-                      }
-                    },
-                    "id": 1357,
-                    "nodeType": "ArrayTypeName",
-                    "src": "2195:6:6",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Hold_$1310_storage_$dyn_storage_ptr",
-                      "typeString": "struct IERC20Holdable.Hold[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2194:15:6"
-            },
-            "scope": 1378,
-            "src": "2120:90:6",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 1361,
-              "nodeType": "StructuredDocumentation",
-              "src": "2218:126:6",
-              "text": "  Returns all the holds\n  This function can only be called by the owner of the contract."
-            },
-            "functionSelector": "705dae3c",
-            "id": 1368,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getHolds",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1362,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "2367:8:6"
-            },
-            "returnParameters": {
-              "id": 1367,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1366,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1368,
-                  "src": "2394:13:6",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Hold_$1310_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IERC20Holdable.Hold[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1364,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1363,
-                        "name": "Hold",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1310,
-                        "src": "2394:4:6"
-                      },
-                      "referencedDeclaration": 1310,
-                      "src": "2394:4:6",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Hold_$1310_storage_ptr",
-                        "typeString": "struct IERC20Holdable.Hold"
-                      }
-                    },
-                    "id": 1365,
-                    "nodeType": "ArrayTypeName",
-                    "src": "2394:6:6",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Hold_$1310_storage_$dyn_storage_ptr",
-                      "typeString": "struct IERC20Holdable.Hold[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2393:15:6"
-            },
-            "scope": 1378,
-            "src": "2350:59:6",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 1369,
-              "nodeType": "StructuredDocumentation",
-              "src": "2417:126:6",
-              "text": "  Returns the hold data\n  This function can only be called by the owner of the contract."
-            },
-            "functionSelector": "38b54540",
-            "id": 1377,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getHold",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1372,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1371,
-                  "mutability": "mutable",
-                  "name": "holdId",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1377,
-                  "src": "2574:14:6",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1370,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2574:7:6",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2565:30:6"
-            },
-            "returnParameters": {
-              "id": 1376,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1375,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1377,
-                  "src": "2614:11:6",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Hold_$1310_memory_ptr",
-                    "typeString": "struct IERC20Holdable.Hold"
-                  },
-                  "typeName": {
-                    "id": 1374,
-                    "nodeType": "UserDefinedTypeName",
-                    "pathNode": {
-                      "id": 1373,
-                      "name": "Hold",
-                      "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1310,
-                      "src": "2614:4:6"
-                    },
-                    "referencedDeclaration": 1310,
-                    "src": "2614:4:6",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Hold_$1310_storage_ptr",
-                      "typeString": "struct IERC20Holdable.Hold"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2613:13:6"
-            },
-            "scope": 1378,
-            "src": "2549:78:6",
+            "scope": 1129,
+            "src": "1919:74:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1379,
-        "src": "195:2437:6"
+        "scope": 1130,
+        "src": "195:1801:6"
       }
     ],
-    "src": "94:2540:6"
+    "src": "94:1904:6"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/interfaces/IERC20Holdable.sol",
     "exportedSymbols": {
       "IERC20Holdable": [
-        1378
+        1129
       ]
     },
-    "id": 1379,
+    "id": 1130,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1302,
+        "id": 1078,
         "literals": [
           "solidity",
           "^",
@@ -1098,30 +757,30 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 1303,
+          "id": 1079,
           "nodeType": "StructuredDocumentation",
           "src": "121:72:6",
           "text": " @dev Interface of the ERC20 standard as defined in the EIP."
         },
         "fullyImplemented": false,
-        "id": 1378,
+        "id": 1129,
         "linearizedBaseContracts": [
-          1378
+          1129
         ],
         "name": "IERC20Holdable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "IERC20Holdable.Hold",
-            "id": 1310,
+            "id": 1086,
             "members": [
               {
                 "constant": false,
-                "id": 1305,
+                "id": 1081,
                 "mutability": "mutable",
                 "name": "sender",
                 "nodeType": "VariableDeclaration",
-                "scope": 1310,
+                "scope": 1086,
                 "src": "252:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1130,7 +789,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1304,
+                  "id": 1080,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "252:7:6",
@@ -1144,11 +803,11 @@
               },
               {
                 "constant": false,
-                "id": 1307,
+                "id": 1083,
                 "mutability": "mutable",
                 "name": "recipient",
                 "nodeType": "VariableDeclaration",
-                "scope": 1310,
+                "scope": 1086,
                 "src": "277:17:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1157,7 +816,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1306,
+                  "id": 1082,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "277:7:6",
@@ -1171,11 +830,11 @@
               },
               {
                 "constant": false,
-                "id": 1309,
+                "id": 1085,
                 "mutability": "mutable",
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
-                "scope": 1310,
+                "scope": 1086,
                 "src": "305:14:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1184,7 +843,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1308,
+                  "id": 1084,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "305:7:6",
@@ -1198,36 +857,36 @@
             ],
             "name": "Hold",
             "nodeType": "StructDefinition",
-            "scope": 1378,
+            "scope": 1129,
             "src": "229:98:6",
             "visibility": "public"
           },
           {
             "documentation": {
-              "id": 1311,
+              "id": 1087,
               "nodeType": "StructuredDocumentation",
-              "src": "335:290:6",
-              "text": " @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\n until the hold is executed or returned.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {Transfer} event."
+              "src": "335:293:6",
+              "text": " @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\n until the hold is executed or returned.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {HoldCreated} event."
             },
             "functionSelector": "226aa68a",
-            "id": 1322,
+            "id": 1098,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "hold",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1318,
+              "id": 1094,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1313,
+                  "id": 1089,
                   "mutability": "mutable",
                   "name": "holdId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1322,
-                  "src": "653:14:6",
+                  "scope": 1098,
+                  "src": "656:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1235,10 +894,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1312,
+                    "id": 1088,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "653:7:6",
+                    "src": "656:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1248,12 +907,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1315,
+                  "id": 1091,
                   "mutability": "mutable",
                   "name": "recipient",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1322,
-                  "src": "676:17:6",
+                  "scope": 1098,
+                  "src": "679:17:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1261,10 +920,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1314,
+                    "id": 1090,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "676:7:6",
+                    "src": "679:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1275,12 +934,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1317,
+                  "id": 1093,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1322,
-                  "src": "702:14:6",
+                  "scope": 1098,
+                  "src": "705:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1288,10 +947,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1316,
+                    "id": 1092,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "702:7:6",
+                    "src": "705:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1300,20 +959,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "644:79:6"
+              "src": "647:79:6"
             },
             "returnParameters": {
-              "id": 1321,
+              "id": 1097,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1320,
+                  "id": 1096,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1322,
-                  "src": "742:7:6",
+                  "scope": 1098,
+                  "src": "745:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1321,10 +980,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1319,
+                    "id": 1095,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "742:7:6",
+                    "src": "745:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1333,40 +992,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "741:9:6"
+              "src": "744:9:6"
             },
-            "scope": 1378,
-            "src": "631:120:6",
+            "scope": 1129,
+            "src": "634:120:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 1323,
+              "id": 1099,
               "nodeType": "StructuredDocumentation",
-              "src": "759:383:6",
-              "text": " @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\n using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's\n allowance.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {Transfer} event."
+              "src": "762:386:6",
+              "text": " @dev Moves `amount` tokens from the caller's account to account[0] (the token owner´s account)\n using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's\n allowance.\n Returns a boolean value indicating whether the operation succeeded.\n Emits a {HoldCreated} event."
             },
-            "functionSelector": "800b1dbb",
-            "id": 1334,
+            "functionSelector": "6e3ebe6b",
+            "id": 1112,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "holdFrom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1330,
+              "id": 1108,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1325,
+                  "id": 1101,
                   "mutability": "mutable",
                   "name": "holdId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1334,
-                  "src": "1174:14:6",
+                  "scope": 1112,
+                  "src": "1180:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1374,10 +1033,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1324,
+                    "id": 1100,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1174:7:6",
+                    "src": "1180:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1387,12 +1046,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1327,
+                  "id": 1103,
                   "mutability": "mutable",
-                  "name": "recipient",
+                  "name": "sender",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1334,
-                  "src": "1197:17:6",
+                  "scope": 1112,
+                  "src": "1203:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1400,10 +1059,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1326,
+                    "id": 1102,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1197:7:6",
+                    "src": "1203:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1414,12 +1073,39 @@
                 },
                 {
                   "constant": false,
-                  "id": 1329,
+                  "id": 1105,
+                  "mutability": "mutable",
+                  "name": "recipient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1112,
+                  "src": "1226:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1104,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1226:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1107,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1334,
-                  "src": "1223:14:6",
+                  "scope": 1112,
+                  "src": "1252:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1427,10 +1113,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1328,
+                    "id": 1106,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1223:7:6",
+                    "src": "1252:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1439,20 +1125,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1165:79:6"
+              "src": "1171:102:6"
             },
             "returnParameters": {
-              "id": 1333,
+              "id": 1111,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1332,
+                  "id": 1110,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1334,
-                  "src": "1263:7:6",
+                  "scope": 1112,
+                  "src": "1292:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1460,10 +1146,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1331,
+                    "id": 1109,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1263:7:6",
+                    "src": "1292:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1472,40 +1158,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1262:9:6"
+              "src": "1291:9:6"
             },
-            "scope": 1378,
-            "src": "1148:124:6",
+            "scope": 1129,
+            "src": "1154:147:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 1335,
+              "id": 1113,
               "nodeType": "StructuredDocumentation",
-              "src": "1280:273:6",
-              "text": "  When the method is executed the money is transferred from the on hold balance to the wallet\n  where the hold was instructed.\n  It can only be executed by the same address that created the hold.\n  Emits a {Transfer} event."
+              "src": "1309:299:6",
+              "text": "  When the method is executed the money is transferred from the on hold balance to the wallet\n  where the hold was instructed.\n  It can only be executed by the same address that created the hold or the contract owner.\n  Emits a {HoldExecuted} event."
             },
             "functionSelector": "12c38364",
-            "id": 1342,
+            "id": 1120,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "executeHold",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1338,
+              "id": 1116,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1337,
+                  "id": 1115,
                   "mutability": "mutable",
                   "name": "holdId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1342,
-                  "src": "1588:14:6",
+                  "scope": 1120,
+                  "src": "1643:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1513,10 +1199,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1336,
+                    "id": 1114,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1588:7:6",
+                    "src": "1643:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1525,20 +1211,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1579:30:6"
+              "src": "1634:30:6"
             },
             "returnParameters": {
-              "id": 1341,
+              "id": 1119,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1340,
+                  "id": 1118,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1342,
-                  "src": "1628:4:6",
+                  "scope": 1120,
+                  "src": "1683:4:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1546,10 +1232,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1339,
+                    "id": 1117,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1628:4:6",
+                    "src": "1683:4:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1558,40 +1244,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1627:6:6"
+              "src": "1682:6:6"
             },
-            "scope": 1378,
-            "src": "1559:75:6",
+            "scope": 1129,
+            "src": "1614:75:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 1343,
+              "id": 1121,
               "nodeType": "StructuredDocumentation",
-              "src": "1642:212:6",
-              "text": "  Returns the money on hold and all the balance is available for transfers.\n  This function can only be called by the owner of the contract.\n  Emits a {Transfer} event."
+              "src": "1697:216:6",
+              "text": "  Returns the money on hold and all the balance is available for transfers.\n  This function can only be called by the owner of the contract.\n  Emits a {HoldCanceled} event."
             },
             "functionSelector": "70369869",
-            "id": 1350,
+            "id": 1128,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "cancelHold",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1346,
+              "id": 1124,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1345,
+                  "id": 1123,
                   "mutability": "mutable",
                   "name": "holdId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1350,
-                  "src": "1888:14:6",
+                  "scope": 1128,
+                  "src": "1947:14:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1599,10 +1285,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1344,
+                    "id": 1122,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1888:7:6",
+                    "src": "1947:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1611,20 +1297,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1879:30:6"
+              "src": "1938:30:6"
             },
             "returnParameters": {
-              "id": 1349,
+              "id": 1127,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1348,
+                  "id": 1126,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1350,
-                  "src": "1928:4:6",
+                  "scope": 1128,
+                  "src": "1987:4:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1632,10 +1318,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1347,
+                    "id": 1125,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1928:4:6",
+                    "src": "1987:4:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1644,291 +1330,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1927:6:6"
+              "src": "1986:6:6"
             },
-            "scope": 1378,
-            "src": "1860:74:6",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 1351,
-              "nodeType": "StructuredDocumentation",
-              "src": "1942:172:6",
-              "text": "  Returns all the address holds\n  This function can only be called by the owner of the contract or the address that created the holds."
-            },
-            "functionSelector": "f718bdfe",
-            "id": 1360,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getUserHolds",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1354,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1353,
-                  "mutability": "mutable",
-                  "name": "userAddress",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1360,
-                  "src": "2150:19:6",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 1352,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2150:7:6",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2141:35:6"
-            },
-            "returnParameters": {
-              "id": 1359,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1358,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1360,
-                  "src": "2195:13:6",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Hold_$1310_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IERC20Holdable.Hold[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1356,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1355,
-                        "name": "Hold",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1310,
-                        "src": "2195:4:6"
-                      },
-                      "referencedDeclaration": 1310,
-                      "src": "2195:4:6",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Hold_$1310_storage_ptr",
-                        "typeString": "struct IERC20Holdable.Hold"
-                      }
-                    },
-                    "id": 1357,
-                    "nodeType": "ArrayTypeName",
-                    "src": "2195:6:6",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Hold_$1310_storage_$dyn_storage_ptr",
-                      "typeString": "struct IERC20Holdable.Hold[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2194:15:6"
-            },
-            "scope": 1378,
-            "src": "2120:90:6",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 1361,
-              "nodeType": "StructuredDocumentation",
-              "src": "2218:126:6",
-              "text": "  Returns all the holds\n  This function can only be called by the owner of the contract."
-            },
-            "functionSelector": "705dae3c",
-            "id": 1368,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getHolds",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1362,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "2367:8:6"
-            },
-            "returnParameters": {
-              "id": 1367,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1366,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1368,
-                  "src": "2394:13:6",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Hold_$1310_memory_ptr_$dyn_memory_ptr",
-                    "typeString": "struct IERC20Holdable.Hold[]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 1364,
-                      "nodeType": "UserDefinedTypeName",
-                      "pathNode": {
-                        "id": 1363,
-                        "name": "Hold",
-                        "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1310,
-                        "src": "2394:4:6"
-                      },
-                      "referencedDeclaration": 1310,
-                      "src": "2394:4:6",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Hold_$1310_storage_ptr",
-                        "typeString": "struct IERC20Holdable.Hold"
-                      }
-                    },
-                    "id": 1365,
-                    "nodeType": "ArrayTypeName",
-                    "src": "2394:6:6",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Hold_$1310_storage_$dyn_storage_ptr",
-                      "typeString": "struct IERC20Holdable.Hold[]"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2393:15:6"
-            },
-            "scope": 1378,
-            "src": "2350:59:6",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
-          },
-          {
-            "documentation": {
-              "id": 1369,
-              "nodeType": "StructuredDocumentation",
-              "src": "2417:126:6",
-              "text": "  Returns the hold data\n  This function can only be called by the owner of the contract."
-            },
-            "functionSelector": "38b54540",
-            "id": 1377,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getHold",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 1372,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1371,
-                  "mutability": "mutable",
-                  "name": "holdId",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1377,
-                  "src": "2574:14:6",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1370,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2574:7:6",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2565:30:6"
-            },
-            "returnParameters": {
-              "id": 1376,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 1375,
-                  "mutability": "mutable",
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1377,
-                  "src": "2614:11:6",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Hold_$1310_memory_ptr",
-                    "typeString": "struct IERC20Holdable.Hold"
-                  },
-                  "typeName": {
-                    "id": 1374,
-                    "nodeType": "UserDefinedTypeName",
-                    "pathNode": {
-                      "id": 1373,
-                      "name": "Hold",
-                      "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1310,
-                      "src": "2614:4:6"
-                    },
-                    "referencedDeclaration": 1310,
-                    "src": "2614:4:6",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Hold_$1310_storage_ptr",
-                      "typeString": "struct IERC20Holdable.Hold"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2613:13:6"
-            },
-            "scope": 1378,
-            "src": "2549:78:6",
+            "scope": 1129,
+            "src": "1919:74:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1379,
-        "src": "195:2437:6"
+        "scope": 1130,
+        "src": "195:1801:6"
       }
     ],
-    "src": "94:2540:6"
+    "src": "94:1904:6"
   },
   "compiler": {
     "name": "solc",
@@ -1936,16 +1351,16 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-22T17:43:09.428Z",
+  "updatedAt": "2021-11-27T10:53:29.171Z",
   "devdoc": {
     "details": "Interface of the ERC20 standard as defined in the EIP.",
     "kind": "dev",
     "methods": {
       "hold(uint256,address,uint256)": {
-        "details": "Moves `amount` tokens from the caller's account to account[0] (the token owner´s account) until the hold is executed or returned. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
+        "details": "Moves `amount` tokens from the caller's account to account[0] (the token owner´s account) until the hold is executed or returned. Returns a boolean value indicating whether the operation succeeded. Emits a {HoldCreated} event."
       },
-      "holdFrom(uint256,address,uint256)": {
-        "details": "Moves `amount` tokens from the caller's account to account[0] (the token owner´s account) using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
+      "holdFrom(uint256,address,address,uint256)": {
+        "details": "Moves `amount` tokens from the caller's account to account[0] (the token owner´s account) using the allowance mechanism until the hold is executed or returned. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {HoldCreated} event."
       }
     },
     "version": 1
@@ -1954,19 +1369,10 @@
     "kind": "user",
     "methods": {
       "cancelHold(uint256)": {
-        "notice": "Returns the money on hold and all the balance is available for transfers.  This function can only be called by the owner of the contract.  Emits a {Transfer} event."
+        "notice": "Returns the money on hold and all the balance is available for transfers.  This function can only be called by the owner of the contract.  Emits a {HoldCanceled} event."
       },
       "executeHold(uint256)": {
-        "notice": "When the method is executed the money is transferred from the on hold balance to the wallet  where the hold was instructed.  It can only be executed by the same address that created the hold.  Emits a {Transfer} event."
-      },
-      "getHold(uint256)": {
-        "notice": "Returns the hold data  This function can only be called by the owner of the contract."
-      },
-      "getHolds()": {
-        "notice": "Returns all the holds  This function can only be called by the owner of the contract."
-      },
-      "getUserHolds(address)": {
-        "notice": "Returns all the address holds  This function can only be called by the owner of the contract or the address that created the holds."
+        "notice": "When the method is executed the money is transferred from the on hold balance to the wallet  where the hold was instructed.  It can only be executed by the same address that created the hold or the contract owner.  Emits a {HoldExecuted} event."
       }
     },
     "version": 1

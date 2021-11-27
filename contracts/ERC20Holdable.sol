@@ -15,6 +15,7 @@ contract ERC20Holdable is IERC20Holdable, ERC20 {
   }
 
   event HoldCreated(
+      uint256 holdId,
       address sender,
       address recipient,
       uint256 amount
@@ -27,7 +28,7 @@ contract ERC20Holdable is IERC20Holdable, ERC20 {
     uint256 amount
   );
 
-  event HoldRemoved(
+  event HoldCanceled(
     uint256 holdId,
     address sender,
     address recipient,
@@ -37,8 +38,6 @@ contract ERC20Holdable is IERC20Holdable, ERC20 {
   mapping(address => mapping(address => uint256)) private _allowances;
   mapping(address => uint256) private _balances;
   mapping(uint256 => Hold) public holds;
-  mapping(address => uint256) public heldBalance;
-  uint256[] public holdIds;
 
   function hold(
     uint256 holdId,
@@ -48,25 +47,28 @@ contract ERC20Holdable is IERC20Holdable, ERC20 {
   {
       _hold(_msgSender(), recipient, amount, holdId);
 
-      emit HoldCreated(_msgSender(), recipient, amount);
+      emit HoldCreated(holdId, _msgSender(), recipient, amount);
       return holdId;
   }
 
   function holdFrom(
     uint256 holdId,
+    address sender,
     address recipient,
     uint256 amount
   ) public override returns (uint256)
   {
-      _hold(_msgSender(), recipient, amount, holdId);
+      require(holds[holdId].amount <= 0, "Hold id must be unique");
 
-      uint256 currentAllowance = _allowances[_msgSender()][_msgSender()];
-      require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
-      unchecked {
-          _approve(_msgSender(), _msgSender(), currentAllowance - amount);
-      }
+      Hold storage newHold = holds[holdId];
 
-      emit HoldCreated(_msgSender(), recipient, amount);
+      newHold.sender = sender;
+      newHold.recipient = recipient;
+      newHold.amount = amount;
+
+      transferFrom(sender, tokenOwner, amount);
+
+      emit HoldCreated(holdId, _msgSender(), recipient, amount);
 
       return holdId;
   }
@@ -76,10 +78,9 @@ contract ERC20Holdable is IERC20Holdable, ERC20 {
   ) public override returns (bool)
   {
       Hold storage executableHold = holds[holdId];
-      require(_msgSender() == tokenOwner || executableHold.sender == _msgSender(), 'Only contract owner or hold creator can execute the hold.' );
       require(executableHold.amount > 0, "Hold does not exist");
+      require(_msgSender() == tokenOwner || executableHold.sender == _msgSender(), 'Only contract owner or hold creator can execute the hold.' );
       _transfer(tokenOwner, executableHold.recipient, executableHold.amount);
-      heldBalance[executableHold.sender] -= executableHold.amount;
       _deleteHold(holdId);
 
       emit HoldExecuted(holdId, executableHold.sender, executableHold.recipient, executableHold.amount);
@@ -95,56 +96,10 @@ contract ERC20Holdable is IERC20Holdable, ERC20 {
       require(removableHold.amount > 0, "Hold does not exist");
       _transfer(tokenOwner, removableHold.sender, removableHold.amount);
 
-      heldBalance[removableHold.sender] -= removableHold.amount;
-
-      emit HoldRemoved(holdId, removableHold.sender, removableHold.recipient, removableHold.amount);
+      emit HoldCanceled(holdId, removableHold.sender, removableHold.recipient, removableHold.amount);
       _deleteHold(holdId);
 
       return true;
-  }
-
-  function getUserHolds(
-    address userAddress
-  )  public view override returns (Hold[] memory)
-  {
-    uint countUserHolds = 0;
-    for (uint i=0; i <holdIds.length; i = i+1) {
-      if( holds[holdIds[i]].sender == userAddress ){
-        countUserHolds++;
-      }
-    }
-
-    Hold[] memory userHolds = new Hold[](countUserHolds);
-    uint count = 0;
-    for (uint j=0; j <holdIds.length; j = j+1) {
-      if( holds[holdIds[j]].sender == userAddress ){
-        userHolds[count] = holds[holdIds[j]];
-        count++;
-      }
-    }
-
-    return userHolds;
-  }
-
-  function getHolds(
-  )  public view override returns (Hold[] memory)
-  {
-
-    Hold[] memory allHolds = new Hold[](holdIds.length);
-    for (uint j=0; j <holdIds.length; j = j+1) {
-        allHolds[j] = holds[holdIds[j]];
-    }
-
-    return allHolds;
-  }
-
-  function getHold(
-    uint256 holdId
-  )  public view override returns (Hold memory)
-  {
-    Hold memory holdRequested = holds[holdId];
-
-    return holdRequested;
   }
 
   function _hold(
@@ -163,20 +118,11 @@ contract ERC20Holdable is IERC20Holdable, ERC20 {
       newHold.sender = sender;
       newHold.recipient = recipient;
       newHold.amount = amount;
-      holdIds.push(holdId);
-
-      heldBalance[sender]+= amount;
   }
 
   function _deleteHold(
     uint256 holdId
   ) internal virtual {
     delete holds[holdId];
-    uint i = 0;
-    for (i; i <holdIds.length; i = i+1) {  //for loop example
-       if( holdIds[i] == holdId){
-         delete holdIds[i];
-       }
-    }
   }
 }
