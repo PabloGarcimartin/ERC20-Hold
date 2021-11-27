@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Get user balance and bets",
+			"name": "Get user balance and bets 0",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -23,14 +23,46 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/player/0xa07F690b76696d9178c1bc2247707F44233CFb7B",
+					"raw": "http://localhost:8080/players/0x2DdEf738F43aeaa095C6CF59cbE1AB16F1c0D803",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"player",
+						"players",
+						"0x2DdEf738F43aeaa095C6CF59cbE1AB16F1c0D803"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user balance and bets 1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/players/0xa07F690b76696d9178c1bc2247707F44233CFb7B",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
 						"0xa07F690b76696d9178c1bc2247707F44233CFb7B"
 					]
 				}
@@ -55,14 +87,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/player/0xd4755d270AF771BcDc4447bc8b724C2631B814Fe",
+					"raw": "http://localhost:8080/players/0xd4755d270AF771BcDc4447bc8b724C2631B814Fe",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"player",
+						"players",
 						"0xd4755d270AF771BcDc4447bc8b724C2631B814Fe"
 					]
 				}
@@ -87,14 +119,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/player/0x0492eABC848b4aEb56a9B56625d827963844ADC5",
+					"raw": "http://localhost:8080/players/0x0492eABC848b4aEb56a9B56625d827963844ADC5",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"player",
+						"players",
 						"0x0492eABC848b4aEb56a9B56625d827963844ADC5"
 					]
 				}
@@ -119,46 +151,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/player/0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c",
+					"raw": "http://localhost:8080/players/0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"player",
+						"players",
 						"0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get all bets",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/bets",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"bets"
 					]
 				}
 			},
@@ -170,54 +171,56 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/player",
+					"raw": "http://localhost:8080/players",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"player"
+						"players"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "bet",
+			"name": "bet 0",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/bet/0xa07F690b76696d9178c1bc2247707F44233CFb7B",
+					"raw": "http://localhost:8080/players/0x2DdEf738F43aeaa095C6CF59cbE1AB16F1c0D803/bets",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"bet",
-						"0xa07F690b76696d9178c1bc2247707F44233CFb7B"
+						"players",
+						"0x2DdEf738F43aeaa095C6CF59cbE1AB16F1c0D803",
+						"bets"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "bet 4",
+			"name": "bet 1",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/bet/0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c",
+					"raw": "http://localhost:8080/players/0xa07F690b76696d9178c1bc2247707F44233CFb7B/bets",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"bet",
-						"0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c"
+						"players",
+						"0xa07F690b76696d9178c1bc2247707F44233CFb7B",
+						"bets"
 					]
 				}
 			},
@@ -229,15 +232,16 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/bet/0xd4755d270AF771BcDc4447bc8b724C2631B814Fe",
+					"raw": "http://localhost:8080/players/0xd4755d270AF771BcDc4447bc8b724C2631B814Fe/bets",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"bet",
-						"0xd4755d270AF771BcDc4447bc8b724C2631B814Fe"
+						"players",
+						"0xd4755d270AF771BcDc4447bc8b724C2631B814Fe",
+						"bets"
 					]
 				}
 			},
@@ -249,15 +253,37 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/bet/0x0492eABC848b4aEb56a9B56625d827963844ADC5",
+					"raw": "http://localhost:8080/players/0x0492eABC848b4aEb56a9B56625d827963844ADC5/bets",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"bet",
-						"0x0492eABC848b4aEb56a9B56625d827963844ADC5"
+						"players",
+						"0x0492eABC848b4aEb56a9B56625d827963844ADC5",
+						"bets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bet 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/players/0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c/bets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"players",
+						"0xFf373E25AE952f7ee21F5125D2F0c2fEc50D358c",
+						"bets"
 					]
 				}
 			},
