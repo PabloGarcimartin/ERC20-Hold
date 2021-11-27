@@ -111,10 +111,8 @@ var bettingGame = {
 
               let res = await contract.methods.transfer(winner, web3.utils.toWei((_maxBets*_betImport).toString())).send({from: owner}).then(result => {
                 console.log('WINNER MONEY TRANSFERRED');
-                console.log(betsByUser[winner]);
                 for( let i = 0; i < betsByUser[winner].length; i++  ){
                   if(betsByUser[winner][i][0] == winningBetId){
-                    console.log('WEEEE WE FOUND THE WINNING BET');
                     betsByUser[winner][i][1] = 'won';
                   }
                 }

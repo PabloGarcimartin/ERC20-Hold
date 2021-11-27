@@ -174,10 +174,6 @@ contract("ERC20Holdable", (accounts) => {
     await erc20holdable.approve(accounts[8], smallAmount);
     await erc20holdable.holdFrom(3, owner, accounts[9], smallAmount, {from: accounts[8]});
 
-    // let balance0 = await erc20holdable.balanceOf(accounts[7]);
-    // balance0 = web3.utils.fromWei(balance0, 'ether');
-    // assert.equal(balance0, '8800', 'accounts[7] balance is wrong');
-
     let balance1 = await erc20holdable.balanceOf(accounts[8]);
     balance1 = web3.utils.fromWei(balance1, 'ether');
     assert.equal(balance1, '1000', 'accounts[8] balance is wrong');
