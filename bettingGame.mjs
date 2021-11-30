@@ -1,5 +1,5 @@
 import Web3 from 'web3';
-import {contract, Web3} from './contractConexion.mjs';
+import {contract} from './contractConexion.mjs';
 const web3 = new Web3(new Web3.providers.HttpProvider('HTTP://127.0.0.1:9545'));
 
 const accounts = await web3.eth.getAccounts();
