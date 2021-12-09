@@ -15,10 +15,10 @@ contract ERC20Holdable is IERC20Holdable, ERC20 {
   }
 
   event HoldCreated(
-      uint256 holdId,
-      address sender,
-      address recipient,
-      uint256 amount
+    uint256 holdId,
+    address sender,
+    address recipient,
+    uint256 amount
   );
 
   event HoldExecuted(
