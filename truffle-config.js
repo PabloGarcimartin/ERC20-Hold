@@ -1,3 +1,4 @@
+Web3 = require('web3')
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -43,8 +44,22 @@ module.exports = {
     //
     development: {
      host: "127.0.0.1",     // Localhost (default: none)
-     port: 9545,            // Standard Ethereum port (default: none)
+     port: 8546,            // Standard Ethereum port (default: none)
      network_id: "5777",       // Any network (default: none),
+     networkCheckTimeout: 999999,  
+    },
+    ganache: {
+     host: "127.0.0.1",     // Localhost (default: none)
+     port: 8546,            // Standard Ethereum port (default: none)
+     network_id: "*",       // Any network (default: none),
+     networkCheckTimeout: 999999,  
+     gasPrice: 0,
+     websockets: true,        // Enable EventEmitter interface for web3 (default: false)
+     provider: () => new Web3.providers.WebsocketProvider("ws://localhost:8546", {
+       headers: {
+         origin: "127.0.0.1"
+       }
+})
     },
     // Another network with more advanced options...
     // advanced: {
